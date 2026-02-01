@@ -21,6 +21,7 @@ composer install
 
 # Création de la base de données et des tables
 php bin/console doctrine:migrations:migrate
+yes
 
 # Démarrage du serveur
 symfony server:start
@@ -51,25 +52,10 @@ L'interface sera accessible sur : http://localhost:5173
 ## 3. Exécution des Tests (Backend)
 
 Les tests s'exécutent sur une base de données dédiée (`var/test.db`) pour ne pas écraser vos données.
-Ouvrez un terminal dans le dossier `backend`.
-
-### Étape A : Configuration de l'environnement de test
-
-**Linux / macOS :**
-```bash
-echo 'DATABASE_URL="sqlite:///%kernel.project_dir%/var/test.db"' > .env.test.local
-```
-
-**Windows :**
-```batch
-echo DATABASE_URL="sqlite:///%kernel.project_dir%/var/test.db" > .env.test.local
-```
-
-### Étape B : Initialisation et lancement
-
-Ces commandes sont identiques pour tous les systèmes :
 
 ```bash
+cd backend
+
 # Lancement des tests
 php bin/phpunit
 ```
